@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100hv;
+    padding: 15px;
+    border-radius: 12px;
+    font-family:'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background-color: brown;
+    color: black;
+}
+.nav{
+    
+    background-color: antiquewhite;
+    padding: 5px 0;
+    border-radius: 30px;
+}
+.text{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.text h2{
+    font-size:xx-large;
+    justify-content:center;
+    text-decoration:solid;
+}
+.text h2:hover{
+    text-decoration:underline;
+}
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.logo img{
+    padding:12px;
+    border-radius:20px;
+    width: 100px;
+    height: 100px;
+}
+.nav-links{
+    padding: 20px;
+    list-style:none;
+    display:flex;
+    gap: 2.5rem;    
+}
+.nav-links a{
+    padding: 12px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: rgb(8, 8, 8);
+    transition: 1.2s;
+}
+.nav-links a:hover{
+    background-color: brown;
+    transform:translateY(-5.8px);
+    text-decoration:underline;
+    color: rgb(249, 252, 252);
+}
+.slider-container{
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 10000px;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 60%;
+            width: 100%;
+        }
+.slide {
+            min-width: 100%;
+            position: relative;
+}
+.slide img {
+            width: 100%;
+            height: 100%;
+            object-fit:cover;
+        }
+
+
+/* sider*/
+.slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 30px 20px 20px;
+        }
+
+        .slide-caption h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-caption p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .slider-btn {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin: 0 20px;
+            transition: all 0.3s;
+        }
+
+        .slider-btn:hover {
+            background-color: rgba(221, 38, 38, 0.9);
+            transform: scale(1.1);
+        }
+
+        .slider-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .slider {
+                height: 400px;
+            }
+
+            .slide-caption h3 {
+                font-size: 1.4rem;
+            }
+
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slider {
+                height: 300px;
+            }
+
+            .slide-caption {
+                padding: 20px 15px 15px;
+            }
+
+            .slide-caption h3 {
+                font-size: 1.2rem;
+            }
+        }

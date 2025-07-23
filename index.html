@@ -1,0 +1,169 @@
+<html>
+    <head>
+        <title>Halar Stud Farm</title>
+        <link rel="stylesheet" href="index-css.css" />
+        <link rel="icon" href="c:\Users\acer\Desktop\Halar stud farm.jpg" type="image/gif" />
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="nav">
+                <div class="text">
+                    <div class="logo"><img src="c:\Users\acer\Desktop\Halar stud farm.jpg" alt="logo"></div>
+                     <h2>Halar Stud Farm</h2>
+                        <nav>
+                            <ol class="nav-links">
+                                <li><a href="jyotiradityasinh vaghela (page ).html">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#comtact">Contact</a></li>
+                                <li><a href="#events">Events</a></li>
+                             </ol>
+                        </nav>
+                </div>
+            </div>
+        </header>
+        <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="c:\Users\acer\Desktop\project\Halar stude farm\image\WhatsApp Image 2025-07-04 at 22.22.06_344f8148.jpg">
+                <div class="slide-caption">
+                    <h3>Halar Stud Farm</h3>
+                    <p>Riding horse with a pride.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="c:\Users\acer\Desktop\project\Halar stude farm\image\WhatsApp Image 2025-07-06 at 09.53.26_b87e16dc.jpg" alt="Calm ocean waves under golden sunset sky" >
+                <div class="slide-caption">
+                    <h3>Halar Club</h3>
+                    <p>Learn Basic Riding , shooting  with air guns and many more.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="c:\Users\acer\Desktop\project\Halar stude farm\image\WhatsApp Image 2025-07-04 at 22.22.05_c3eab7f5.jpg" alt="Snow-capped mountain peak under blue sky">
+                <div class="slide-caption">
+                    <h3>safaris</h3>
+                    <p> on weekend we organise a safaris for over members.</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="c:\Users\acer\Desktop\project\Halar stude farm\image\WhatsApp Image 2025-07-04 at 22.22.06_74cac555.jpg" alt="Golden sand dunes stretching to the horizon">
+                <div class="slide-caption">
+                    <h3>Full moon ride</h3>
+                    <p>On the day of full moon we ride the horse in the light of moon. </p>
+                </div>
+            </div>
+        </div>
+
+       <div class="slider-controls">
+            <button class="slider-btn prev-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+                </svg>
+            </button>
+            <button class="slider-btn next-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="slider-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+    
+        <!--js for the transfer of image -->
+         <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slider = document.querySelector('.slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dots = document.querySelectorAll('.dot');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Initialize slider
+            function goToSlide(slideIndex) {
+                slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+                currentSlide = slideIndex;
+                updateDots();
+            }
+            
+            // Update active dot
+            function updateDots() {
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Next slide
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slideCount;
+                goToSlide(currentSlide);
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+                goToSlide(currentSlide);
+            }
+            
+            // Click handlers
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // Dot click handlers
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+            
+            // Auto-advance slides
+            let slideInterval = setInterval(nextSlide, 3000);
+            
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+            
+            // Touch support for mobile devices
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                clearInterval(slideInterval);
+            });
+            
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+            
+            function handleSwipe() {
+                const threshold = 50;
+                if (touchEndX < touchStartX - threshold) {
+                    nextSlide();
+                } else if (touchEndX > touchStartX + threshold) {
+                    prevSlide();
+                }
+            }
+        });
+    </script>
+
+    </body>
+</html>
